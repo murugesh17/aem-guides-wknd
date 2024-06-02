@@ -17,7 +17,7 @@
     data-sly-use.model="com.adobe.aem.guides.wknd.core.models.HelloWorldModel">
     <h1 class="cmp-helloworld__title">${model.title}</h1>
     <div class="cmp-helloworld__item" data-sly-test="${properties.text}">
-        <p class="cmp-helloworld__item-label">Text property:</p>
+        <p class="cmp-helloworld__item-label">${properties.title}</p>
         <pre class="cmp-helloworld__item-output" data-cmp-hook-helloworld="property">${properties.text}</pre>
     </div>
     <div class="cmp-helloworld__item" data-sly-test="${model.text}">
