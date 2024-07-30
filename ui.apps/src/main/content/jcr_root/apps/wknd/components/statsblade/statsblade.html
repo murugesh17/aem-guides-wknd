@@ -1,0 +1,54 @@
+<sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html">
+<sly data-sly-call="${clientLib.css @ categories='we.train.site'}"/>
+<sly data-sly-call="${clientlib.js @ categories='we.train.site'}"/>
+
+<div data-sly-use.template="core/wcm/components/commons/v1/templates.html" class="col-three-stats">
+	<section class="col-three-stats newgreen  bg-white text-black " style="" data-component="stats:redesign-2023">    
+    	<div class="container">
+        <div class="row text-center title">
+            <h2 class="col-12 m-0 p-0">${properties.heading}</h2>
+        </div>
+        <div class="row col-3-wrap">
+        
+            	<div data-sly-list.continentMultifield="${resource.getChildren}">
+                	<div data-sly-test="${continentMultifield.name == 'contact'}">
+                    	<div data-sly-list.continent="${continentMultifield.getChildren}">
+        
+                            <div class="col-md col-md-4 col greenfilledcircle" style="float:left; width:31%;">
+                                <div class="card">
+                                    <div class="text-img">
+                                        <h2>
+                                            <div class="stat-wrap">
+                                                <div class="prefix">${continent.prefix}</div>
+                                                <span class="">${continent.statNumber}</span>
+                                            </div>
+                                            <div class="suffix">${continent.suffix}</div>
+                                        </h2>
+                                        <div class="text">
+                                            <h4>${continent.source}</h4>
+                                            <div class="logo-wrap">
+                                                <img width="161" height="40" src="${continent.fileReference}" class="attachment-full size-full lazyloaded" alt="" decoding="async" data-ll-status="loaded">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+            			</div>
+            		</div>
+            </div>
+            
+        </div>
+        <div class="row text-center btn-wrap">
+            <div class="col-12">
+                <a href="${properties.buttonLinkTo @ extension = 'html'}" class="btn-blue-filled " target="_self" data-class="" aria-label="Learn why Cohesity"><span>${properties.buttonLabel}</span></a>          
+            </div>
+        </div>
+    </div>
+</section>    
+</div>
+
+
+
+
+<!--/* component placeholder */-->
+<sly data-sly-call="${template.placeholder @ isEmpty=!hasContent}"></sly>

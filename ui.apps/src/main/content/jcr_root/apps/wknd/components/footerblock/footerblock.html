@@ -1,0 +1,42 @@
+<sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html">
+<sly data-sly-call="${clientLib.css @ categories='we.train.site'}"/>
+<sly data-sly-call="${clientlib.js @ categories='we.train.site'}"/>
+
+<div data-sly-use.template="core/wcm/components/commons/v1/templates.html" class="col-three-grid">
+	<div class="bg-image">
+         <img class="lazyloaded" src="http://localhost:4502/content/dam/career/single-cta-background.png" alt="curve" data-ll-status="loaded">
+     </div>
+        <div class="container">
+			<div class="col-12 text-center intro">
+              <h2>${properties.heading}</h2>
+            </div>        
+            <div class="row row-default">
+            
+            	<div data-sly-list.continentMultifield="${resource.getChildren}">
+                	<div data-sly-test="${continentMultifield.name == 'contact'}">
+                    	<div data-sly-list.continent="${continentMultifield.getChildren}">
+                            <div class="col-sm-6 col-lg-4 col-three">
+								<div class="content">
+                                      	<div class="img-wrap">
+                      						<img width="105" height="82" src="${continent.fileReference}" class="attachment-full size-full lazyloaded" alt="Calendar icon" decoding="async" data-ll-status="loaded">                    
+                                        </div>
+                                    	<div class="content-block">
+                                          	<div class="h3-small">${continent.itemsHeading}</div>
+                                                <p class="p-xl">${continent.itemsDescription}</p>
+                                      		</div>
+                                      		<div class="btn-wrap">
+                      							<a href="${continent.buttonLinkTo @ extension = 'html'}" class="btn-blue-filled " target="_self" data-class="" aria-label="Browse demos"><span>${continent.buttonLabel}</span></a>                    
+                                             </div>
+                                  </div>                            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+        </div>
+    </div>
+</div>
+
+<!--/* component placeholder */-->
+<sly data-sly-call="${template.placeholder @ isEmpty=!hasContent}"></sly>

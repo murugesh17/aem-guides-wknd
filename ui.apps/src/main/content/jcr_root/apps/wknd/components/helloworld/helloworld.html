@@ -15,13 +15,12 @@
 */-->
 <div class="cmp-helloworld" data-cmp-is="helloworld"
     data-sly-use.model="com.adobe.aem.guides.wknd.core.models.HelloWorldModel">
+    <p>Sling Model</p>
     <h1 class="cmp-helloworld__title">${model.title}</h1>
-    <div class="cmp-helloworld__item" data-sly-test="${properties.text}">
-        <p class="cmp-helloworld__item-label">${properties.title}</p>
-        <pre class="cmp-helloworld__item-output" data-cmp-hook-helloworld="property">${properties.text}</pre>
-    </div>
+    
     <div class="cmp-helloworld__item" data-sly-test="${model.text}">
         <p class="cmp-helloworld__item-label">Sling Model getText() property:</p>
         <pre class="cmp-helloworld__item-output" data-cmp-hook-helloworld="property">${model.text}</pre>
+        <pre class="cmp-helloworld__item-output" data-cmp-hook-helloworld="property">${model.message}</pre>
     </div>
 </div>

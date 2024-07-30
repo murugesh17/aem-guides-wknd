@@ -1,0 +1,43 @@
+<sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html">
+<sly data-sly-call="${clientLib.css @ categories='we.train.site'}"/>
+<sly data-sly-call="${clientlib.js @ categories='we.train.site'}"/>
+
+<div data-sly-use.template="core/wcm/components/commons/v1/templates.html" class="intro-with-grid">
+	<section class="intro-with-grid">    
+    	<div class="container">
+
+            <div class="row text-center title">
+                <h2 class="col-12 m-0 p-0">${properties.heading}</h2>
+            </div>
+            <div class="row col-3-wrap">
+            
+            	<div data-sly-list.continentMultifield="${resource.getChildren}">
+                	<div data-sly-test="${continentMultifield.name == 'contact'}">
+                    	<div data-sly-list.continent="${continentMultifield.getChildren}">
+                            <div class="col-sm col-sm-4 col" style="float:left; width:30%;">
+                                <div class="card">
+                                    <div class="text-img">
+                                        <div class="img  text-center ">
+                                            <img width="86" height="80" src="${continent.fileReference}" class="attachment-full size-full lazyloaded" alt="" decoding="async" data-ll-status="loaded">
+                                        </div>
+                                        <div class="text  text-center ">
+                                            <h4>${continent.itemsHeading}</h4>
+                                            <p class="p-l">${continent.itemsDescription}</p>
+                                        </div>                             
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+</div>
+
+
+
+<!--/* component placeholder */-->
+<sly data-sly-call="${template.placeholder @ isEmpty=!hasContent}"></sly>
