@@ -15,15 +15,20 @@
  */
 package com.adobe.aem.guides.wknd.core.models;
 
-import static org.apache.sling.api.resource.ResourceResolver.PROPERTY_RESOURCE_TYPE;
+import static org.apache.sling.api.resource.ResourceResolver.*;
+
+import java.util.List;
+import java.util.Optional;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.Default;
+import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.Via;
 import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
@@ -33,10 +38,7 @@ import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageManager;
 
-import java.util.Optional;
-
-import org.apache.commons.lang3.StringUtils;
-import org.apache.sling.models.annotations.DefaultInjectionStrategy;
+import lombok.Getter;
 
 /*@Model(adaptables = Resource.class,
    defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL) */
@@ -49,7 +51,13 @@ public class BenefitsBladeModel {
     protected String resourceType;
 
 @SlingObject
-    SlingHttpServletRequest slingRequest;    
+    SlingHttpServletRequest slingRequest;
+
+    @Inject
+    @Via("resource")
+    @Getter
+    public List<Contact> contact;
+    
     
     @SlingObject
     private Resource currentResource;

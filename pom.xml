@@ -771,12 +771,6 @@ Bundle-DocURL:
                 <version>${wknd-shared.version}</version>
                 <type>zip</type>
             </dependency>
-            <dependency>
-                <groupId>org.projectlombok</groupId>
-                <artifactId>lombok</artifactId>
-                <version>1.18.22</version>
-                <scope>compile</scope>
-            </dependency>            
 
             <!-- Testing -->
             <dependency>
@@ -854,4 +848,16 @@ Bundle-DocURL:
             <uniqueVersion>false</uniqueVersion>
         </snapshotRepository>
     </distributionManagement>
+
+
+    <dependencies>
+    
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.34</version>
+        </dependency>
+
+    </dependencies>
 </project>

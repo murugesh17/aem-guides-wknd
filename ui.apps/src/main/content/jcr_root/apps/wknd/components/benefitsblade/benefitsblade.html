@@ -28,11 +28,25 @@
                                 </div>
                             </div>
                         </div>
-                
-                
+                    </div>
+                </div>
+
+                <sly  data-sly-use.contactObj="com.adobe.aem.guides.wknd.core.models.BenefitsBladeModel">
+
+                    <div class="g-row">
+                        <sly data-sly-list.item= "${contactObj.contact}">
+                            <div class="g-col  g-palm-wide-and-up--1-2 g-desk--1-4  print-hidden">
+                                <div class="info-box  ">
+                                    <div class="info-box__body">
+                                        <sly data-sly-test="${item.itemsHeading}">Name - ${item.itemsHeading @ context='html'}<br></sly>
+                                    </div>
+                                </div>
+                            </div>
+                        </sly>
+                    </div>
+                        
+                    </sly>                
             </div>
-        </div>
-    </div>
 </div>
 </section>
 </div>
