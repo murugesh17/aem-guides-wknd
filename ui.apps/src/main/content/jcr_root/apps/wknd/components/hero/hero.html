@@ -1,0 +1,37 @@
+<sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html">
+<sly data-sly-call="${clientLib.css @ categories='we.train.site'}"/>
+<sly data-sly-call="${clientlib.js @ categories='we.train.site'}"/>
+
+<div data-sly-use.template="core/wcm/components/commons/v1/templates.html" class="cmp-hero" data-sly-test="${properties.theme=='blogs'}">
+    <div class="cmp-teaser">
+            <div class="cmp-teaser__image">
+                <img class="cmp-image__image" src="${properties.fileReference}" itemprop="contentUrl" data-cmp-hook-image="image" alt="${properties.alt}">
+            </div>
+            
+            <div class="cmp-teaser__content">
+            	<h2 class="hero-cust-title">Blogs herobanner</h2>
+                <div class="cmp-teaser__description">${properties.heading}</div>
+
+                <p class="cmp-teaser__action-container" data-sly-test="${properties.buttonLabel && properties.buttonLinkTo}">
+                    <a class="cmp-teaser__action-link" href="${properties.buttonLinkTo @ extension = 'html'}">${properties.buttonLabel}</a>
+                </p>
+            </div>
+ 	</div>
+ </div>
+
+<div data-sly-use.template="core/wcm/components/commons/v1/templates.html" class="hero-banner" data-sly-test="${properties.theme=='company'}">
+    <div class="company text-white" style="background-size: cover; background-position: 50% 50%; margin-top: 79px; background-image: url('http://localhost:4502/content/dam/company-hero-banner.jpg');">
+            <div class="container">
+            	<div class="text-wrap">
+                	<h1 class="h1-small">${properties.heading}</h1>
+                    
+                    <div class="btn-wrap">
+                    	<a class="btn-darker-green-black" href="${properties.buttonLinkTo @ extension = 'html'}">${properties.buttonLabel}</a>
+                    </div>
+                </div>
+            </div>
+    </div>
+ </div>
+ 
+<!--/* component placeholder */-->
+<sly data-sly-call="${template.placeholder @ isEmpty=!hasContent}"></sly>
